@@ -5,12 +5,6 @@ import MyTable from './Components/MyTable';
 function App() {
 	const [date, setDate] = useState('');
 	const [filter, setFilter] = useState(false);
-	const [header, setHeader] = useState([]);
-	const [data, setData] = useState([]);
-
-	const updateState = (newState) => {
-		setData(newState);
-	};
 
 	return (
 		<div className="mx-2">
@@ -32,12 +26,7 @@ function App() {
 				</Button>
 			</div>
 
-			<MyTable
-				filter={filter}
-				date={date}
-				setHeader={setHeader}
-				updateState={updateState}
-			/>
+			<MyTable filter={filter} date={date} />
 		</div>
 	);
 }

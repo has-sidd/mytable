@@ -1,22 +1,10 @@
-import { useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import { data, headings } from '../Api/tabledata';
 
-const MyTable = ({ filter, date, setHeader, updateState }) => {
+const MyTable = ({ filter, date }) => {
 	const [day, month, year] = date.split('-');
 	const newDate = `${year}/${month}/${day}`;
-
-	useEffect(() => {
-		if (filter) {
-			const newFilteredData = data.filter(
-				(row) => row['Date Started'] === newDate
-			);
-			updateState(newFilteredData);
-		} else {
-			updateState(data);
-		}
-	}, [data, filter]);
 
 	return (
 		<div className="my-4">
@@ -32,7 +20,6 @@ const MyTable = ({ filter, date, setHeader, updateState }) => {
 				<thead>
 					<tr>
 						{headings.map((heading, index) => {
-							setHeader(headings);
 							return <th key={index}>{heading}</th>;
 						})}
 					</tr>
