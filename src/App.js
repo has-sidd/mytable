@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { TagsInput } from 'react-tag-input-component';
+import InputField from './Components/InputField';
 import MyTable from './Components/MyTable';
 
 function App() {
 	const [date, setDate] = useState('');
 	const [filter, setFilter] = useState(false);
+	const [selected, setSelected] = useState([]);
 
 	return (
 		<div className="mx-2">
@@ -27,6 +30,20 @@ function App() {
 			</div>
 
 			<MyTable filter={filter} date={date} />
+
+			<div>
+				<h1>Input Field Example</h1>
+				{/* <pre>{JSON.stringify(selected)}</pre> */}
+				<TagsInput
+					value={selected}
+					onChange={setSelected}
+					name="ports"
+					placeHolder="Enter Port Name"
+					className="form-control"
+					separators={['Enter', ' ']}
+				/>
+				<em>press enter/space to add new tag</em>
+			</div>
 		</div>
 	);
 }
