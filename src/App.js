@@ -33,7 +33,7 @@ function App() {
 
 			<div>
 				<h1>Input Field Example</h1>
-				{/* <pre>{JSON.stringify(selected)}</pre> */}
+				<pre>{JSON.stringify(selected)}</pre>
 				<TagsInput
 					value={selected}
 					onChange={setSelected}
